@@ -1,5 +1,5 @@
 :root{--e9:#022c22;--e8:#064e3b;--e7:#047857;--gold:#d4af37;--gold2:#f6e08a;--gold3:#9a7b1c;--ink:#ecfdf5;
---serif:"Cinzel","Playfair Display",Georgia,serif;--sub:"Montserrat","Inter",system-ui,sans-serif;--body:"Inter","Poppins",system-ui,sans-serif}
+--serif:"Cinzel","Playfair Display",Georgia,serif;--sub:"Cinzel","Inter",system-ui,sans-serif;--body:"Inter","Poppins",system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{font-size:clamp(12px,.8333vw,24px)}          /* 1920px = 16px */
 body{font-family:var(--body);color:var(--ink);min-height:100vh;overflow-x:hidden;-webkit-tap-highlight-color:transparent;
