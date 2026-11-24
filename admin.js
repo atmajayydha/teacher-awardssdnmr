@@ -29,7 +29,8 @@ async function login() {
 }
 function logout() { tok = ''; sessionStorage.removeItem('tok'); $('#login').hidden = false; $('#app').hidden = true; $('#logout').hidden = true }
 function enter() { $('#login').hidden = true; $('#app').hidden = false; $('#logout').hidden = false; load() }
-$('#btn-login').onclick = login; $('#pin').onkeydown = e => e.key === 'Enter' && login(); $('#logout').onclick = logout;
+$('#btn-login').onclick = login; $('#logout').onclick = logout;
+$('#pin').addEventListener('keydown', e => { if (e.key === 'Enter') login(); });
 
 /* ---------- Data & tab ---------- */
 async function load() {
