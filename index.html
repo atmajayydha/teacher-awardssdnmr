@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Muara Rengas Teacher Awards 2026</title>
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600&family=Montserrat:wght@600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand"><img src="logo.png" alt=""><span>Muara Rengas Teacher Awards 2026</span></div>
+  <div class="tools">
+    <span id="demo" class="chip" hidden>MODE DEMO</span>
+    <span id="qbadge" class="chip warn" hidden></span>
+    <span id="net" class="dot ok" title="Koneksi"></span>
+    <button id="fs" class="icon-btn" aria-label="Layar penuh">⛶</button>
+  </div>
+</header>
+
+<main>
+  <!-- OPENING -->
+  <section id="s-opening" class="screen hero on">
+    <img class="hero-logo" src="logo.png" alt="Logo SDN Muara Rengas">
+    <p class="sub">Peringatan Hari Guru Nasional · SDN Muara Rengas</p>
+    <h1 class="gold-text">MUARA RENGAS<br>TEACHER AWARDS 2026</h1>
+    <p class="cat">Guru Terfavorit 2026</p>
+    <button class="btn" data-go="intro">Mulai</button>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <section id="s-intro" class="screen">
+    <h2 class="gold-text">Selamat Datang</h2>
+    <p class="sub">Pilih guru terfavoritmu tahun ini</p>
+    <div class="steps">
+      <div><b>1</b><h3>Masukkan kode</h3><p>Gunakan kode pemilih milikmu. Satu kode untuk satu suara.</p></div>
+      <div><b>2</b><h3>Pilih satu guru</h3><p>Sentuh foto guru yang kamu pilih dari 18 nominasi.</p></div>
+      <div><b>3</b><h3>Konfirmasi</h3><p>Periksa pilihanmu lalu kirim. Suara tidak bisa diubah.</p></div>
+    </div>
+    <div class="row"><button class="btn ghost" data-go="opening">Kembali</button><button class="btn" data-go="nominasi">Lihat Nominasi</button></div>
+  </section>
+
+  <!-- NOMINATION -->
+  <section id="s-nominasi" class="screen wide">
+    <h2 class="gold-text">18 Nominasi Guru Terfavorit 2026</h2>
+    <div id="grid-nom" class="grid"></div>
+    <div class="row"><button class="btn ghost" data-go="intro">Kembali</button><button id="btn-mulai" class="btn">Mulai Voting</button></div>
+  </section>
+
+  <!-- KODE -->
+  <section id="s-kode" class="screen">
+    <h2 class="gold-text">Masukkan Kode Pemilih</h2>
+    <div id="codebox" class="codebox"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <p id="kode-msg" class="msg" role="alert"></p>
+    <div id="keys" class="keys"></div>
+    <div class="row"><button class="btn ghost" data-go="nominasi">Batal</button><button id="btn-lanjut" class="btn">Lanjut</button></div>
+  </section>
+
+  <!-- VOTING -->
+  <section id="s-pilih" class="screen wide">
+    <h2 class="gold-text">Pilih Satu Guru Terfavorit</h2>
+    <p class="sub">Sentuh foto guru pilihanmu</p>
+    <div id="grid-pilih" class="grid"></div>
+    <div class="row"><button class="btn ghost" id="btn-batal">Batal</button></div>
+  </section>
+
+  <!-- THANKS -->
+  <section id="s-thanks" class="screen hero">
+    <div class="check">✓</div>
+    <h2 class="gold-text">Terima Kasih!</h2>
+    <p id="thanks-msg" class="cat">Suaramu sudah tercatat.</p>
+    <p class="sub">Layar akan kembali dalam <span id="count">6</span> detik</p>
+    <button class="btn" id="btn-next">Pemilih Berikutnya</button>
+  </section>
+
+  <!-- CLOSED -->
+  <section id="s-closed" class="screen hero">
+    <img class="hero-logo small" src="logo.png" alt="">
+    <h2 class="gold-text">Voting Telah Ditutup</h2>
+    <p class="cat" id="closed-msg">Terima kasih atas partisipasi semua pemilih.<br>Pemenang akan segera diumumkan.</p>
+    <button class="btn" id="btn-win" hidden>Lihat Pemenang</button>
+  </section>
+
+  <!-- WINNER -->
+  <section id="s-winner" class="screen hero">
+    <div class="rays"></div>
+    <div id="w-pre" class="w-pre">
+      <p class="sub">Pemenang Guru Terfavorit 2026 adalah…</p>
+      <div id="w-count" class="bigcount">3</div>
+    </div>
+    <div id="w-show" class="w-show" hidden>
+      <p class="sub">Selamat kepada Guru Terfavorit 2026</p>
+      <div id="w-list" class="wlist"></div>
+      <p id="w-total" class="sub"></p>
+      <div class="row"><button class="btn ghost" id="btn-replay">Putar Ulang</button><button class="btn" data-go="closing">Lanjut</button></div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section id="s-closing" class="screen hero">
+    <img class="hero-logo" src="logo.png" alt="">
+    <h1 class="gold-text">Terima Kasih</h1>
+    <p class="cat">Selamat Hari Guru Nasional<br>SDN Muara Rengas</p>
+    <p class="sub">Cerdas · Trampil · Berkarakter</p>
+    <button class="btn ghost" data-go="opening">Kembali ke Awal</button>
+  </section>
+</main>
+
+<div id="modal" class="modal" role="dialog" aria-modal="true">
+  <div class="panel">
+    <p class="sub">Kamu memilih</p>
+    <img id="m-foto" alt="">
+    <h2 id="m-nama" class="gold-text"></h2>
+    <p>Suara tidak dapat diubah setelah dikirim.</p>
+    <div class="row"><button class="btn ghost" id="btn-ganti">Ganti Pilihan</button><button class="btn" id="btn-ya">Ya, Kirim Suara</button></div>
+  </div>
+</div>
+<div id="toast" class="toast"></div>
+<canvas id="confetti"></canvas>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Dashboard Operator · Muara Rengas Teacher Awards 2026</title>
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="adm">
+  <header><img src="logo.png" alt=""><h1 class="gold-text">Dashboard Operator</h1><button id="logout" class="btn ghost" hidden>Keluar</button></header>
+
+  <section id="login" class="box" style="max-width:26rem;margin:4rem auto">
+    <h3>Masukkan PIN operator</h3><br>
+    <input id="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="PIN"><br><br>
+    <button id="btn-login" class="btn">Masuk</button>
+    <p id="login-msg" class="bad" style="margin-top:.8rem"></p>
+  </section>
+
+  <section id="app" hidden>
+    <div class="tabs">
+      <button class="tab-btn on" data-t="kontrol">Kontrol</button>
+      <button class="tab-btn" data-t="guru">Guru</button>
+      <button class="tab-btn" data-t="kode">Kode Pemilih</button>
+      <button class="tab-btn" data-t="rekap">Rekap & Validasi</button>
+      <button class="tab-btn" data-t="reset">Reset</button>
+    </div>
+
+    <div id="t-kontrol" class="tab box">
+      <h3>Status: <span id="st-chip" class="chip"></span></h3><br>
+      <div class="stats"><div><b id="n-kode">0</b>Kode dibuat</div><div><b id="n-pakai">0</b>Kode terpakai</div><div><b id="n-suara">0</b>Suara masuk</div></div><br>
+      <div class="row">
+        <button id="b-open" class="btn">Buka Voting</button>
+        <button id="b-close" class="btn">Tutup Voting</button>
+        <button id="b-announce" class="btn">Umumkan Pemenang</button>
+      </div>
+      <p style="margin-top:1rem">Hasil dan rekap hanya bisa dilihat setelah voting ditutup. Pastikan layar siswa tidak menampilkan "suara menunggu dikirim" sebelum menutup voting.</p>
+    </div>
+
+    <div id="t-guru" class="tab box" hidden>
+      <p>Nama dan foto tidak dapat diubah saat voting dibuka. Foto otomatis dipotong rasio 4:5.</p><br>
+      <table><thead><tr><th>#</th><th>Foto</th><th>Nama</th><th>Ganti foto</th><th></th></tr></thead><tbody id="guru-rows"></tbody></table>
+    </div>
+
+    <div id="t-kode" class="tab box" hidden>
+      <div class="row"><input id="n-gen" type="number" min="1" max="500" value="50" style="width:8rem"><button id="b-gen" class="btn">Buat Kode Baru</button><button id="b-list" class="btn ghost">Daftar Semua Kode</button></div>
+      <p style="margin:.8rem 0">Satu kode = satu suara. Cetak dan bagikan, satu kode per siswa.</p>
+      <div id="codes" class="codes"></div><br>
+      <button id="b-csv-kode" class="btn" hidden>Unduh Kode (CSV)</button>
+    </div>
+
+    <div id="t-rekap" class="tab box" hidden>
+      <div id="rekap-out">Memuat…</div>
+    </div>
+
+    <div id="t-reset" class="tab box" hidden>
+      <h3 class="bad">Reset data voting</h3>
+      <p style="margin:.8rem 0">Menghapus semua suara dan kode pemilih, lalu mengembalikan status ke awal. Data guru tetap. Unduh CSV rekap terlebih dahulu.</p>
+      <input id="reset-txt" type="text" placeholder='Ketik RESET untuk konfirmasi' style="max-width:22rem"><br><br>
+      <button id="b-reset" class="btn" style="background:#ef4444;color:#fff">Reset Sekarang</button>
+    </div>
+  </section>
+</div>
+<div id="toast" class="toast"></div>
+<script src="config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
