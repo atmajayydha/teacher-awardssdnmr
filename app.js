@@ -55,7 +55,7 @@ function updBtn() {
   b.disabled = s === 'setup';
 }
 $('#btn-mulai').onclick = () => {
-  if (st.status === 'open') { kode = ''; drawKode(); msg(''); show('kode') }
+  if (st.status === 'open') { if (C.PAKAI_KODE) { kode = ''; drawKode(); msg(''); show('kode') } else pilihGuru() }
   else if (st.status === 'closed') show('closed')
   else if (st.status === 'announced') pemenang()
 };
@@ -104,7 +104,7 @@ async function kirim() {
   let mode = 'ok';
   try {
     const r = await api('vote', item);
-    if (!r.ok) { closeModal(); busy = false; pilih = null; kode = ''; drawKode(); if (r.code === 'closed') show('closed'); else { show('kode'); msg(r.error || 'Suara gagal dikirim.') } return }
+    if (!r.ok) { closeModal(); busy = false; pilih = null; kode = ''; drawKode(); if (r.code === 'closed') show('closed'); else if (C.PAKAI_KODE) { show('kode'); msg(r.error || 'Suara gagal dikirim.') } else { show('nominasi'); toast(r.error || 'Suara gagal dikirim.') } return }
   } catch {
     // Koneksi putus: simpan lokal, kirim ulang otomatis (reqId sama, aman dari suara ganda)
     const q = LS.get('q', []); q.push(item); LS.set('q', q); mode = 'offline'; updQ();
@@ -117,7 +117,7 @@ function thanks(mode) {
   clearInterval(thanksT);
   thanksT = setInterval(() => { $('#count').textContent = --n; if (n <= 0) nextVoter() }, 1000);
 }
-function nextVoter() { clearInterval(thanksT); if (cur !== 'thanks') return; if (st.status === 'open') { msg(''); show('kode') } else show(st.status === 'announced' ? 'closing' : 'closed') }
+function nextVoter() { clearInterval(thanksT); if (cur !== 'thanks') return; if (st.status === 'open') { if (C.PAKAI_KODE) { msg(''); show('kode') } else pilihGuru() } else show(st.status === 'announced' ? 'closing' : 'closed') }
 $('#btn-next').onclick = nextVoter;
 
 /* ---------- Antrean offline ---------- */
