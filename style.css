@@ -1,5 +1,5 @@
 :root{--e9:#022c22;--e8:#064e3b;--e7:#047857;--gold:#d4af37;--gold2:#f6e08a;--gold3:#9a7b1c;--ink:#ecfdf5;
---serif:"Cinzel","Playfair Display",Georgia,serif;--sub:"Cinzel","Inter",system-ui,sans-serif;--body:"Inter","Poppins",system-ui,sans-serif}
+--serif:"Cinzel","Playfair Display",Georgia,Palatino Linotype;--sub:"Cinzel","Inter",system-ui,sans-serif;--body:"Inter","Poppins",system-ui,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 html{font-size:clamp(12px,.8333vw,24px)}          /* 1920px = 16px */
 body{font-family:var(--body);color:var(--ink);min-height:100vh;overflow-x:hidden;-webkit-tap-highlight-color:transparent;
@@ -109,3 +109,5 @@ background:repeating-conic-gradient(rgba(246,224,138,.22) 0 5deg,transparent 5de
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:1rem}.stats div{text-align:center}.stats b{display:block;font:700 2.2rem var(--serif);color:var(--gold2)}
 .ok{color:#6ee7b7}.bad{color:#fca5a5}.adm .row{justify-content:flex-start}
 .codes{columns:6;font:600 1.1rem monospace;letter-spacing:.1em}
+
+
